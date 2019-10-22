@@ -58,7 +58,7 @@ try:
                         time.sleep(1)
                         print('正在尝试注入js')
                         time.sleep(1)
-                        fp = open('.\\js.txt', 'r')
+                        fp = open('.\\play.js', 'r', encoding='gbk')
                         try:
                             js = fp.read()
                             time.sleep(0.02)
