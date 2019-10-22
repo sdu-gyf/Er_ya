@@ -1,3 +1,4 @@
+#encoding=gbk
 import sys
 import time
 from selenium import webdriver
@@ -14,9 +15,9 @@ try:
     driver.find_element_by_id('FidName').send_keys("山东大学")
     time.sleep(0.2)
     driver.find_element_by_id('2093').click()
-    username = input("username:")
+    username = input('请输入用户名')
     driver.find_element_by_id('idNumber').send_keys(username)
-    password = input("password:")
+    password = input('请输入密码')
     driver.find_element_by_id('pwd').send_keys(password)
     numcode = input("请输入验证码:")
     driver.find_element_by_id('numcode').send_keys(numcode)
@@ -34,7 +35,7 @@ try:
         print('跳转到课程界面成功，正在尝试选择视频')
         time.sleep(1)
         driver.switch_to_frame('frame_content')
-        name=input("请输入课程名(全称且无错别字):")
+        name=input('请输入课程名（你看到什么就输入什么，包括省略号）')
         driver.find_element_by_link_text(name).click()
         print('进入视频列表成功')
         try:#遍历课表
@@ -51,9 +52,9 @@ try:
                         time.sleep(1)
                         print('正在尝试播放现在未完成视频')
                         time.sleep(1)
-                        target = driver.find_element_by_xpath("//span[@class='roundpointStudent  orange01 a002'][text()='2']")
+                        target = driver.find_element_by_xpath("//span[@class='roundpointStudent  orange01 a002 jobCount'][text()='2']")
                         driver.execute_script("arguments[0].scrollIntoView();", target)
-                        driver.find_element_by_xpath("//span[@class='roundpointStudent  orange01 a002'][text()='2']").click()
+                        driver.find_element_by_xpath("//span[@class='roundpointStudent  orange01 a002 jobCount'][text()='2']/../a").click()
                         time.sleep(1)
                         print('正在尝试注入js')
                         time.sleep(1)
